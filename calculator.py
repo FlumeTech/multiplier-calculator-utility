@@ -5,7 +5,12 @@ import sys
 import getopt
 
 def printArgHelp():
-    print('meter-mult-calculator.py -r1 <reading 1> -r2 <reading 2> -mr <meter read> -fr <flume read> -cm <current mult> -h <help>')
+    print("meter-mult-calculator.py USAGE:")
+    print("--read1=<meter read 1>")
+    print("--read2=<meter read 2>")
+    print("--meter_read=<meter delta (bypass reads)>")
+    print("--flume_read=<flume delta>")
+    print("--current_mult=<current multiplier>")
 
 def main(argv):
     ## Check the args
@@ -14,7 +19,7 @@ def main(argv):
         sys.exit(2)
 
     try:
-        opts, args = getopt.getopt(argv, "r1:r2:mr:fr:cm:h",["read1=","read2=","meter_read=","flume_read=","current_mult="])
+        opts, args = getopt.getopt(argv, "-h",["read1=","read2=","meter_read=","flume_read=","current_mult="])
     except getopt.GetoptError:
         printArgHelp()
         sys.exit(2)
